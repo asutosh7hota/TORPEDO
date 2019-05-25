@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8" />
+    <script async src="home.js"></script>
+    <link rel="stylesheet" type="text/css" href="home.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <title>Repaira Interface</title>
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(function() {
+        $("#slider-range").slider({
+          range: true,
+          min: 0,
+          max: 500,
+          values: [130, 210],
+          slide: function(event, ui) {
+            $("#amount").val(ui.values[1] - ui.values[0] + "cm");
+          }
+        });
+        $("#amount").val(
+          $("#slider-range").slider("values", 0) +
+            "cm" +
+            "    " +
+            $("#slider-range").slider("values", 1) +
+            "cm"
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <div class="global container-fluid">
+      <header></header>
+      <section class="row">
+        <div class="figure1 col-sm col-md-6">
+          <!-- ADD HERE GIF 1 -->
+        </div>
+        <div class="figure2 col-sm col-md-6">
+          <!-- ADD HERE GIF 2 -->
+        </div>
+      </section>
+
+      <section>
+        <div class="slider_window">
+          <p>
+            <label for="amount">Distance To Leak:</label>
+            <input
+              type="text"
+              id="amount"
+              readonly
+              style="border:0; color:#f6931f; font-weight:bold;"
+            />
+          </p>
+
+          <div id="slider-range"></div>
+        </div>
+      </section>
+      <footer></footer>
+    </div>
+  </body>
+</html>
