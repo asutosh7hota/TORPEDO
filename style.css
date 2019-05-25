@@ -1,0 +1,27 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr 1.3fr 1fr;
+  grid-template-rows: 1fr 0.5fr 1.3fr 1.2fr;
+  grid-template-areas: "GIF-1 GIF-1 GIF-2 GIF-2" "GIF-1 GIF-1 GIF-2 GIF-2" "picture picture picture picture" "slider slider slider slider";
+}
+
+.GIF-1 {
+  grid-area: GIF-1;
+}
+
+.GIF-2 {
+  grid-area: GIF-2;
+}
+
+.slider {
+  grid-area: picture;
+}
+
+.picture {
+  grid-area: slider;
+}
+#image1 {
+  position: relative;
+  left: 700px;
+  top: -10px;
+}
