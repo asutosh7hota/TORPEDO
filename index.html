@@ -19,7 +19,7 @@
           range: true,
           min: 0,
           max: 500,
-          values: [130, 210],
+          values: [148, 332],
           slide: function(event, ui) {
             $("#amount").val(ui.values[1] - ui.values[0] + "cm");
           }
@@ -37,7 +37,14 @@
 
       function leftArrowPressed() {
         var element = document.getElementById("image1");
-        element.style.left = parseInt(element.style.left) - 3 + "px";
+        if (element.style.left !== "60px") {
+          element.style.left = parseInt(element.style.left) - 3 + "px";
+        } else {
+          redirect();
+        }
+
+        console.log(element.style.left);
+        console.log(typeof element.style.left);
       }
 
       function rightArrowPressed() {
@@ -59,31 +66,52 @@
       function docReady() {
         window.addEventListener("keydown", moveSelection);
       }
+
+      function redirect() {
+        window.location.href = "./index.1.html";
+      }
     </script>
   </head>
   <body onload="docReady()" onkeydown="" onkeyup="">
+    <div class="navigation-bar">
+      <div id="navigation-container">
+        <img
+          src="./logo.png"
+          style="position:absolute;left:15px; top:18px;;"
+          height="50px"
+          width="100px"
+        />
+
+        <ul>
+          <li><a href="#">Tools</a></li>
+          <li><a href="#">Channels</a></li>
+          <li><a href="#">Monitor</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="grid-container">
       <div class="GIF-1">
-        <h1>Noise Data</h1>
+        <h1>Accoustic Signal Data</h1>
         <img
           src="./gif1.gif"
           alt="Simply Easy Learning"
           width="400"
-          height="400"
+          height="350"
         />
       </div>
       <div class="GIF-2">
-        <h1>Real Time video</h1>
+        <h1>Real-Time Monitoring System</h1>
         <img
-          src="./gif1.gif"
+          src="./gif2.gif"
           alt="Simply Easy Learning"
-          width="400"
-          height="400"
+          width="500"
+          height="350"
         />
       </div>
 
       <div class="slider">
-        <h1>Positioning System</h1>
+        <h1 style="text-align:center">Repaira Positioning System</h1>
 
         <p>
           <label for="amount">Distance To Leak:</label>
@@ -96,17 +124,38 @@
         </p>
 
         <div id="slider-range"></div>
-      </div>
-      <div class="picture">
-        <h1>Visualizer</h1>
 
         <img
           id="image1"
-          src="./image.png"
-          style="position:absolute;left:600px; top:650px;"
-          height="150"
-          width="200"
+          src="./module1.png"
+          style="position:absolute;left:600px; top:705px; z-index: 2;"
+          height="70"
+          width="2500"
         />
+        <img
+          id="image2"
+          src="./bgp.png"
+          style="position:absolute;left:-300px; top:680px;z-index: 1;"
+          height="120"
+          width="1760"
+        />
+        <img
+          id="image3"
+          src="./leak.png"
+          style="position:absolute;left:423px; top:680px;z-index: 3;"
+          height="10"
+          width="10"
+        />
+        <img
+          id="image4"
+          src="./leak_drop.png"
+          style="position:absolute;left:415px; top:650px;z-index: 4;"
+          height="30"
+          width="30"
+        />
+      </div>
+      <div class="picture">
+        <h1>Visualizer</h1>
       </div>
     </div>
   </body>
